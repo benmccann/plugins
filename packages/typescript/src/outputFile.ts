@@ -62,6 +62,12 @@ export default function findTypescriptOutput(
     !ts.sys.useCaseSensitiveFileNames
   );
 
+console.log();
+console.log(`Called getOutputFileNames with options: ${JSON.stringify(parsedOptions)}`);
+console.log();
+console.log(`getOutputFileNames returned ${JSON.stringify(emittedFileNames)}. These files should not have "src" in the output path.`)
+console.log();
+
   const codeFile = emittedFileNames.find(isCodeOutputFile);
   const mapFile = emittedFileNames.find(isMapOutputFile);
 

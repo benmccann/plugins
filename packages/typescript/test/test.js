@@ -1180,7 +1180,8 @@ test.serial('picks up on newly included typescript files in watch mode', async (
 
 // https://github.com/rollup/plugins/issues/287. this fails with the message:
 // Unexpected token (Note that you need plugins to import files that are not JavaScript)
-test.serial.skip('works when code is in src directory', async (t) => {
+test.serial('works when code is in src directory', async (t) => {
+  console.log('Running test for https://github.com/rollup/plugins/issues/287');
   const bundle = await rollup({
     input: 'fixtures/src-dir/src/index.ts',
     output: [
