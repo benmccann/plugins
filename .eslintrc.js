@@ -5,7 +5,25 @@ module.exports = {
     project: ['./tsconfig.eslint.json', './packages/*/tsconfig.json'],
     tsconfigRootDir: __dirname
   },
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'import'],
+  settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx']
+    },
+    'import/resolver': {
+      // use <root>/tsconfig.json
+      'typescript': {
+        'alwaysTryTypes': true // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+      },
+
+      // Multiple tsconfigs (Useful for monorepos)
+
+      // use a glob pattern
+      'typescript': {
+        'project': 'packages/*/tsconfig.json'
+      }
+    }
+  },
   rules: {
     '@typescript-eslint/consistent-type-assertions': 'error',
     '@typescript-eslint/consistent-type-definitions': 'error',

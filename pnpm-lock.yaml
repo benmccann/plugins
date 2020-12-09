@@ -13,6 +13,7 @@ importers:
       codecov-lite: 1.0.3
       del-cli: 3.0.1
       eslint-config-rollup: 1.0.0_typescript@3.9.7
+      eslint-import-resolver-typescript: 2.3.0
       execa: 4.0.3
       globby: 11.0.1
       husky: 4.3.0
@@ -36,6 +37,7 @@ importers:
       conventional-commits-parser: ^3.1.0
       del-cli: ^3.0.1
       eslint-config-rollup: ^1.0.0
+      eslint-import-resolver-typescript: ^2.3.0
       execa: ^4.0.3
       globby: ^11.0.1
       husky: ^4.2.5
@@ -2394,30 +2396,33 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-3wEKoSh+Fku9pvlyOwqWoexBh6E=
-  /array-includes/3.1.1:
+  /array-includes/3.1.2:
     dependencies:
+      call-bind: 1.0.0
       define-properties: 1.1.3
-      es-abstract: 1.17.7
+      es-abstract: 1.18.0-next.1
+      get-intrinsic: 1.0.1
       is-string: 1.0.5
     dev: true
     engines:
       node: '>= 0.4'
     resolution:
-      integrity: sha512-c2VXaCHl7zPsvpkFsw4nxvFie4fh1ur9bpcgsVkIjqn0H/Xwdg+7fv3n2r/isyS8EBj5b06M9kHyZuIr4El6WQ==
+      integrity: sha512-w2GspexNQpx+PutG3QpT437/BenZBj0M/MZGn5mzv/MofYqo0xmRHzn4lFsoDlWJ+THYsGJmFlW68WlDFx7VRw==
   /array-union/2.1.0:
     engines:
       node: '>=8'
     resolution:
       integrity: sha512-HGyxoOTYUyCM6stUe6EJgnd4EoewAI7zMdfqO+kGjnlZmBDz/cR5pf8r/cR4Wq60sL/p0IkcjUEEPwS3GFrIyw==
-  /array.prototype.flat/1.2.3:
+  /array.prototype.flat/1.2.4:
     dependencies:
+      call-bind: 1.0.0
       define-properties: 1.1.3
-      es-abstract: 1.17.7
+      es-abstract: 1.18.0-next.1
     dev: true
     engines:
       node: '>= 0.4'
     resolution:
-      integrity: sha512-gBlRZV0VSmfPIeWfuuy56XZMvbVfbEUnOXUvt3F/eUUUSyzlgLxhEX4YAEpxNAogRGehPSnfXyPtYyKAhkzQhQ==
+      integrity: sha512-4470Xi3GAPAjZqFcljX2xzckv1qeKPizoNkiS0+O4IoPR2ZNpcjE0pkhdihlDouK+x6QOast26B4Q/O9DJnwSg==
   /arrgv/1.0.2:
     dev: true
     engines:
@@ -2658,6 +2663,13 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-kpqOvwXnjjN44D89K5ccQC+RUrsy7jB/XLlRrx0D7/2HNcTPqzsb6XgYoErwko6QsV184CA2YgS1fxDiiDZMWA==
+  /call-bind/1.0.0:
+    dependencies:
+      function-bind: 1.1.1
+      get-intrinsic: 1.0.1
+    dev: true
+    resolution:
+      integrity: sha512-AEXsYIyyDY3MCzbwdhzG3Jx1R0J2wetQyUynn6dYHAO+bg8l1k7jwZtRv4ryryFs7EP+NDlikJlVe59jr0cM2w==
   /call-matcher/1.1.0:
     dependencies:
       core-js: 2.6.11
@@ -3307,6 +3319,19 @@ packages:
         optional: true
     resolution:
       integrity: sha512-IX2ncY78vDTjZMFUdmsvIRFY2Cf4FnD0wRs+nQwJU8Lu99/tPFdb0VybiiMTPe3I6rQmwsqQqRBvxU+bZ/I8sg==
+  /debug/4.3.1:
+    dependencies:
+      ms: 2.1.2
+    dev: true
+    engines:
+      node: '>=6.0'
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+    resolution:
+      integrity: sha512-doEwdvm4PCeK4K3RQN2ZC2BYUBaxwLARCqZmMjtF8a51J2Rb0xpVloFRnCODwqjpwnAoao4pelN8l3RJdv3gRQ==
   /decamelize-keys/1.1.0:
     dependencies:
       decamelize: 1.2.0
@@ -3593,13 +3618,13 @@ packages:
       has: 1.0.3
       has-symbols: 1.0.1
       is-callable: 1.2.2
-      is-negative-zero: 2.0.0
+      is-negative-zero: 2.0.1
       is-regex: 1.1.1
-      object-inspect: 1.8.0
+      object-inspect: 1.9.0
       object-keys: 1.1.1
-      object.assign: 4.1.1
-      string.prototype.trimend: 1.0.2
-      string.prototype.trimstart: 1.0.2
+      object.assign: 4.1.2
+      string.prototype.trimend: 1.0.3
+      string.prototype.trimstart: 1.0.3
     dev: true
     engines:
       node: '>= 0.4'
@@ -3692,6 +3717,21 @@ packages:
     dev: true
     resolution:
       integrity: sha512-ogtf+5AB/O+nM6DIeBUNr2fuT7ot9Qg/1harBfBtaP13ekEWFQEEMP94BCB7zaNW3gyY+8SHYF00rnqYwXKWOA==
+  /eslint-import-resolver-typescript/2.3.0:
+    dependencies:
+      debug: 4.3.1
+      glob: 7.1.6
+      is-glob: 4.0.1
+      resolve: 1.19.0
+      tsconfig-paths: 3.9.0
+    dev: true
+    engines:
+      node: '>=4'
+    peerDependencies:
+      eslint: '*'
+      eslint-plugin-import: '*'
+    resolution:
+      integrity: sha512-MHSXvmj5e0SGOOBhBbt7C+fWj1bJbtSYFAD85Xeg8nvUtuooTod2HQb8bfhE9f5QyyNxEfgzqOYFCvmdDIcCuw==
   /eslint-module-utils/2.6.0:
     dependencies:
       debug: 2.6.9
@@ -3703,8 +3743,8 @@ packages:
       integrity: sha512-6j9xxegbqe8/kZY8cYpcp0xhbK0EgJlg3g9mib3/miLaExuuwc3n5UEfSnU6hWMbT0FAYVvDbL9RrRgpUeQIvA==
   /eslint-plugin-import/2.22.1_eslint@7.12.0:
     dependencies:
-      array-includes: 3.1.1
-      array.prototype.flat: 1.2.3
+      array-includes: 3.1.2
+      array.prototype.flat: 1.2.4
       contains-path: 0.1.0
       debug: 2.6.9
       doctrine: 1.5.0
@@ -3713,7 +3753,7 @@ packages:
       eslint-module-utils: 2.6.0
       has: 1.0.3
       minimatch: 3.0.4
-      object.values: 1.1.1
+      object.values: 1.1.2
       read-pkg-up: 2.0.0
       resolve: 1.19.0
       tsconfig-paths: 3.9.0
@@ -4076,6 +4116,14 @@ packages:
       node: 6.* || 8.* || >= 10.*
     resolution:
       integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==
+  /get-intrinsic/1.0.1:
+    dependencies:
+      function-bind: 1.1.1
+      has: 1.0.3
+      has-symbols: 1.0.1
+    dev: true
+    resolution:
+      integrity: sha512-ZnWP+AmS1VUaLgTRy47+zKtjTxz+0xMpx3I52i+aalBK1QP19ggLF3Db89KJX7kjfOfP2eoa01qc++GwPgufPg==
   /get-own-enumerable-property-symbols/3.0.2:
     dev: true
     resolution:
@@ -4529,11 +4577,11 @@ packages:
       has: 1.0.3
     resolution:
       integrity: sha512-jq1AH6C8MuteOoBPwkxHafmByhL9j5q4OaPGdbuD+ZtQJVzH+i6E3BJDQcBA09k57i2Hh2yQbEG8yObZ0jdlWw==
-  /is-core-module/2.1.0:
+  /is-core-module/2.2.0:
     dependencies:
       has: 1.0.3
     resolution:
-      integrity: sha512-YcV7BgVMRFRua2FqQzKtTDMz8iCuLEyGKjr70q8Zm1yy2qKcurbFEd79PAdHV77oL3NrAaOVQIbMmiHQCHB7ZA==
+      integrity: sha512-XRAfAdyyY5F5cOXn7hYQDqh2Xmii+DEfIcQGxK/uNwMHhIkPWO0g8msXcbzLe+MpGoR951MlqM/2iIlU4vKDdQ==
   /is-date-object/1.0.2:
     dev: true
     engines:
@@ -4591,12 +4639,12 @@ packages:
   /is-module/1.0.0:
     resolution:
       integrity: sha1-Mlj7afeMFNW4FdZkM2tM/7ZEFZE=
-  /is-negative-zero/2.0.0:
+  /is-negative-zero/2.0.1:
     dev: true
     engines:
       node: '>= 0.4'
     resolution:
-      integrity: sha1-lVOxIbD6wohp2p7UWeIMdUN4hGE=
+      integrity: sha512-2z6JzQvZRa9A2Y7xC6dQQm4FSTSTNWjKIYYTt4246eMTJmIo0Q+ZyOsU66X8lxK1AbB92dFeglPLrhwpeRKO6w==
   /is-npm/4.0.0:
     dev: true
     engines:
@@ -5449,6 +5497,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-jLdtEOB112fORuypAyl/50VRVIBIdVQOSUUGQHzJ4xBSbit81zRarz7GThkEFZy1RceYrWYcPcBFPQwHyAc1gA==
+  /object-inspect/1.9.0:
+    dev: true
+    resolution:
+      integrity: sha512-i3Bp9iTqwhaLZBxGkRfo5ZbE07BQRT7MGu8+nNgwW9ItGp1TzCTw2DLEoWwjClxBjOFI/hWljTAmYGCEwmtnOw==
   /object-is/1.1.3:
     dependencies:
       define-properties: 1.1.3
@@ -5475,6 +5527,17 @@ packages:
       node: '>= 0.4'
     resolution:
       integrity: sha512-VT/cxmx5yaoHSOTSyrCygIDFco+RsibY2NM0a4RdEeY/4KgqezwFtK1yr3U67xYhqJSlASm2pKhLVzPj2lr4bA==
+  /object.assign/4.1.2:
+    dependencies:
+      call-bind: 1.0.0
+      define-properties: 1.1.3
+      has-symbols: 1.0.1
+      object-keys: 1.1.1
+    dev: true
+    engines:
+      node: '>= 0.4'
+    resolution:
+      integrity: sha512-ixT2L5THXsApyiUPYKmW+2EHpXXe5Ii3M+f4e+aJFAHao5amFRW6J0OO6c/LU8Be47utCx2GL89hxGB6XSmKuQ==
   /object.getownpropertydescriptors/2.1.0:
     dependencies:
       define-properties: 1.1.3
@@ -5495,6 +5558,17 @@ packages:
       node: '>= 0.4'
     resolution:
       integrity: sha512-WTa54g2K8iu0kmS/us18jEmdv1a4Wi//BZ/DTVYEcH0XhLM5NYdpDHja3gt57VrZLcNAO2WGA+KpWsDBaHt6eA==
+  /object.values/1.1.2:
+    dependencies:
+      call-bind: 1.0.0
+      define-properties: 1.1.3
+      es-abstract: 1.18.0-next.1
+      has: 1.0.3
+    dev: true
+    engines:
+      node: '>= 0.4'
+    resolution:
+      integrity: sha512-MYC0jvJopr8EK6dPBiO8Nb9mvjdypOachO5REGk6MXzujbBrAisKo3HmdEI6kZDL6fC31Mwee/5YbtMebixeag==
   /once/1.4.0:
     dependencies:
       wrappy: 1.0.2
@@ -6541,7 +6615,7 @@ packages:
       integrity: sha512-lDfCPaMKfOJXjy0dPayzPdF1phampNWr3qFCjAu+rw/qbQmr5jWH5xN2hwh9QKfw9E5v4hwV7A+jrCmL8yjjqA==
   /resolve/1.19.0:
     dependencies:
-      is-core-module: 2.1.0
+      is-core-module: 2.2.0
       path-parse: 1.0.6
     resolution:
       integrity: sha512-rArEXAgsBG4UgRGcynxWIWKFvh/XZCcS8UJdHhwy91zwAvCZIbcs+vAbflgBnNjYMs/i/i+/Ux6IZhML1yPvxg==
@@ -6850,7 +6924,7 @@ packages:
   /spdx-correct/3.1.1:
     dependencies:
       spdx-expression-parse: 3.0.1
-      spdx-license-ids: 3.0.6
+      spdx-license-ids: 3.0.7
     resolution:
       integrity: sha512-cOYcUWwhCuHCXi49RhFRCyJEK3iPj1Ziz9DpViV3tbZOwXD49QzIN3MpOLJNxh2qwq2lJJZaKMVw9qNi4jTC0w==
   /spdx-exceptions/2.3.0:
@@ -6859,12 +6933,12 @@ packages:
   /spdx-expression-parse/3.0.1:
     dependencies:
       spdx-exceptions: 2.3.0
-      spdx-license-ids: 3.0.6
+      spdx-license-ids: 3.0.7
     resolution:
       integrity: sha512-cbqHunsQWnJNE6KhVSMsMeH5H/L9EpymbzqTQ3uLwNCLZ1Q481oWaofqH7nO6V07xlXwY6PhQdQ2IedWx/ZK4Q==
-  /spdx-license-ids/3.0.6:
+  /spdx-license-ids/3.0.7:
     resolution:
-      integrity: sha512-+orQK83kyMva3WyPf59k1+Y525csj5JejicWut55zeTWANuN17qSiSLUXWtzHeNWORSvT7GLDJ/E/XiIWoXBTw==
+      integrity: sha512-U+MTEOO0AiDzxwFvoa4JVnMV6mZlJKk2sBLt90s7G0Gd0Mlknc7kxEn3nuDPNZRta7O2uy8oLcZLVT+4sqNZHQ==
   /split2/2.2.0:
     dependencies:
       through2: 2.0.5
@@ -6926,6 +7000,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-8oAG/hi14Z4nOVP0z6mdiVZ/wqjDtWSLygMigTzAb+7aPEDTleeFf+WrF+alzecxIRkckkJVn+dTlwzJXORATw==
+  /string.prototype.trimend/1.0.3:
+    dependencies:
+      call-bind: 1.0.0
+      define-properties: 1.1.3
+    dev: true
+    resolution:
+      integrity: sha512-ayH0pB+uf0U28CtjlLvL7NaohvR1amUvVZk+y3DYb0Ey2PUV5zPkkKy9+U1ndVEIXO8hNg18eIv9Jntbii+dKw==
   /string.prototype.trimstart/1.0.2:
     dependencies:
       define-properties: 1.1.3
@@ -6933,6 +7014,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-7F6CdBTl5zyu30BJFdzSTlSlLPwODC23Od+iLoVH8X6+3fvDPPuBVVj9iaB1GOsSTSIgVfsfm27R2FGrAPznWg==
+  /string.prototype.trimstart/1.0.3:
+    dependencies:
+      call-bind: 1.0.0
+      define-properties: 1.1.3
+    dev: true
+    resolution:
+      integrity: sha512-oBIBUy5lea5tt0ovtOFiEQaBkoBBkyJhZXzJYrSmDo5IUUqbOPvVezuRs/agBIdZ2p2Eo1FD6bD9USyBLfl3xg==
   /string_decoder/1.1.1:
     dependencies:
       safe-buffer: 5.1.2
